@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2015 at 06:12 PM
+-- Generation Time: May 29, 2015 at 10:56 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -2673,7 +2673,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_login` (
   `user_role_predefined` tinyint(1) NOT NULL,
   `login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `ohrm_login`
@@ -2699,7 +2699,31 @@ INSERT INTO `ohrm_login` (`id`, `user_id`, `user_name`, `user_role_name`, `user_
 (17, 1, 'Admin', 'Admin', 1, '2015-05-27 05:20:32'),
 (18, 1, 'Admin', 'Admin', 1, '2015-05-27 06:27:19'),
 (19, 1, 'Admin', 'Admin', 1, '2015-05-27 06:29:12'),
-(20, 1, 'Admin', 'Admin', 1, '2015-05-27 06:56:27');
+(20, 1, 'Admin', 'Admin', 1, '2015-05-27 06:56:27'),
+(21, 1, 'Admin', 'Admin', 1, '2015-05-29 05:41:05'),
+(22, 1, 'Admin', 'Admin', 1, '2015-05-29 06:34:17'),
+(23, 1, 'Admin', 'Admin', 1, '2015-05-29 06:51:30'),
+(24, 1, 'Admin', 'Admin', 1, '2015-05-29 07:21:25'),
+(25, 1, 'Admin', 'Admin', 1, '2015-05-29 07:22:19'),
+(26, 1, 'Admin', 'Admin', 1, '2015-05-29 07:22:50'),
+(27, 1, 'Admin', 'Admin', 1, '2015-05-29 07:24:49'),
+(28, 1, 'Admin', 'Admin', 1, '2015-05-29 07:38:50'),
+(29, 1, 'Admin', 'Admin', 1, '2015-05-29 07:40:09'),
+(30, 1, 'Admin', 'Admin', 1, '2015-05-29 07:42:20'),
+(31, 1, 'Admin', 'Admin', 1, '2015-05-29 07:50:26'),
+(32, 1, 'Admin', 'Admin', 1, '2015-05-29 08:28:47'),
+(33, 1, 'Admin', 'Admin', 1, '2015-05-29 08:34:35'),
+(34, 1, 'Admin', 'Admin', 1, '2015-05-29 08:59:25'),
+(35, 1, 'Admin', 'Admin', 1, '2015-05-29 09:37:18'),
+(36, 1, 'Admin', 'Admin', 1, '2015-05-29 09:38:46'),
+(37, 1, 'Admin', 'Admin', 1, '2015-05-29 09:40:54'),
+(38, 1, 'Admin', 'Admin', 1, '2015-05-29 09:41:40'),
+(39, 1, 'Admin', 'Admin', 1, '2015-05-29 09:44:25'),
+(40, 1, 'Admin', 'Admin', 1, '2015-05-29 13:00:49'),
+(41, 1, 'Admin', 'Admin', 1, '2015-05-29 14:48:45'),
+(42, 1, 'Admin', 'Admin', 1, '2015-05-29 15:15:14'),
+(43, 1, 'Admin', 'Admin', 1, '2015-05-29 15:23:55'),
+(44, 1, 'Admin', 'Admin', 1, '2015-05-29 18:17:19');
 
 -- --------------------------------------------------------
 
@@ -2821,8 +2845,8 @@ INSERT INTO `ohrm_menu_item` (`id`, `menu_title`, `screen_id`, `parent_id`, `lev
 (91, 'Employee Trackers', 113, 83, 2, 800, NULL, 1),
 (92, 'My Trackers', 114, 83, 2, 700, NULL, 1),
 (93, 'Payroll', 116, NULL, 1, 800, NULL, 1),
-(94, 'Setup', 117, 93, 2, 800, NULL, 1),
-(95, 'Paygroup', 118, 94, 3, 800, NULL, 1);
+(94, 'Setup', 118, 93, 2, 800, NULL, 1),
+(95, 'Paygroup', 117, 94, 3, 800, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -3560,8 +3584,8 @@ INSERT INTO `ohrm_screen` (`id`, `name`, `module_id`, `action_url`) VALUES
 (114, 'My_Trackers', 12, 'viewMyPerformanceTrackerList'),
 (115, 'Employee_Tracker_Logs', 12, 'addPerformanceTrackerLog'),
 (116, 'Payroll', 13, 'viewPayroll'),
-(117, 'Add Paygroup', 13, 'addPaygroup'),
-(118, 'Settings', 13, 'editPaygroup');
+(117, 'Paygroup', 13, 'viewPaygroup'),
+(118, 'Setup', 13, 'viewSetup');
 
 -- --------------------------------------------------------
 
