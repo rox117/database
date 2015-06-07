@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2015 at 10:56 PM
+-- Generation Time: Jun 07, 2015 at 02:39 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -72,7 +72,7 @@ INSERT INTO `hs_hr_config` (`key`, `value`) VALUES
 ('beacon.activiation_status', 'on'),
 ('beacon.company_name', ''),
 ('beacon.flash_period', '86400'),
-('beacon.lock', 'unlocked'),
+('beacon.lock', 'locked'),
 ('beacon.next_flash_time', '0000-00-00'),
 ('beacon.uuid', 'TodPqEkPif3A8w=='),
 ('hsp_accrued_last_updated', '0000-00-00'),
@@ -1372,7 +1372,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_data_group` (
   `can_delete` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `ohrm_data_group`
@@ -1438,7 +1438,8 @@ INSERT INTO `ohrm_data_group` (`id`, `name`, `description`, `can_read`, `can_cre
 (57, 'recruitment_candidates', 'Recruitment - Candidates', 1, 1, 1, 1),
 (58, 'time_employee_timesheets', 'Time - Employee Timesheets', 1, 0, 0, 0),
 (59, 'leave_list', 'Leave - Leave List', 1, 0, 0, 0),
-(60, 'leave_list_comments', 'Leave - Leave List - Comments', 0, 1, 0, 0);
+(60, 'leave_list_comments', 'Leave - Leave List - Comments', 0, 1, 0, 0),
+(61, 'Paygroup', 'Payroll', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1454,7 +1455,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_data_group_screen` (
   PRIMARY KEY (`id`),
   KEY `data_group_id` (`data_group_id`),
   KEY `screen_id` (`screen_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `ohrm_data_group_screen`
@@ -1535,7 +1536,8 @@ INSERT INTO `ohrm_data_group_screen` (`id`, `data_group_id`, `screen_id`, `permi
 (72, 58, 52, 1),
 (73, 59, 16, 1),
 (74, 59, 98, 1),
-(75, 59, 99, 1);
+(75, 59, 99, 1),
+(76, 61, 117, 4);
 
 -- --------------------------------------------------------
 
@@ -2673,7 +2675,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_login` (
   `user_role_predefined` tinyint(1) NOT NULL,
   `login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=155 ;
 
 --
 -- Dumping data for table `ohrm_login`
@@ -2723,7 +2725,117 @@ INSERT INTO `ohrm_login` (`id`, `user_id`, `user_name`, `user_role_name`, `user_
 (41, 1, 'Admin', 'Admin', 1, '2015-05-29 14:48:45'),
 (42, 1, 'Admin', 'Admin', 1, '2015-05-29 15:15:14'),
 (43, 1, 'Admin', 'Admin', 1, '2015-05-29 15:23:55'),
-(44, 1, 'Admin', 'Admin', 1, '2015-05-29 18:17:19');
+(44, 1, 'Admin', 'Admin', 1, '2015-05-29 18:17:19'),
+(45, 1, 'Admin', 'Admin', 1, '2015-05-29 21:25:21'),
+(46, 1, 'Admin', 'Admin', 1, '2015-05-29 23:09:22'),
+(47, 1, 'Admin', 'Admin', 1, '2015-05-29 23:12:54'),
+(48, 1, 'Admin', 'Admin', 1, '2015-05-30 01:25:48'),
+(49, 1, 'Admin', 'Admin', 1, '2015-05-30 01:40:49'),
+(50, 1, 'Admin', 'Admin', 1, '2015-05-30 04:32:33'),
+(51, 1, 'Admin', 'Admin', 1, '2015-05-30 04:35:24'),
+(52, 1, 'Admin', 'Admin', 1, '2015-05-30 08:13:25'),
+(53, 1, 'Admin', 'Admin', 1, '2015-05-30 09:03:18'),
+(54, 1, 'Admin', 'Admin', 1, '2015-05-31 02:55:06'),
+(55, 1, 'Admin', 'Admin', 1, '2015-05-31 06:47:36'),
+(56, 1, 'Admin', 'Admin', 1, '2015-05-31 15:37:09'),
+(57, 1, 'Admin', 'Admin', 1, '2015-05-31 15:41:19'),
+(58, 1, 'Admin', 'Admin', 1, '2015-05-31 16:50:50'),
+(59, 1, 'Admin', 'Admin', 1, '2015-05-31 16:58:25'),
+(60, 1, 'Admin', 'Admin', 1, '2015-05-31 19:15:22'),
+(61, 1, 'Admin', 'Admin', 1, '2015-05-31 21:46:15'),
+(62, 1, 'Admin', 'Admin', 1, '2015-06-01 00:33:34'),
+(63, 1, 'Admin', 'Admin', 1, '2015-06-01 01:47:45'),
+(64, 1, 'Admin', 'Admin', 1, '2015-06-01 02:06:33'),
+(65, 1, 'Admin', 'Admin', 1, '2015-06-01 02:52:11'),
+(66, 1, 'Admin', 'Admin', 1, '2015-06-01 10:47:26'),
+(67, 1, 'Admin', 'Admin', 1, '2015-06-01 16:10:45'),
+(68, 1, 'Admin', 'Admin', 1, '2015-06-01 21:27:13'),
+(69, 1, 'Admin', 'Admin', 1, '2015-06-01 22:50:55'),
+(70, 1, 'Admin', 'Admin', 1, '2015-06-01 23:40:50'),
+(71, 1, 'Admin', 'Admin', 1, '2015-06-01 23:59:48'),
+(72, 1, 'Admin', 'Admin', 1, '2015-06-02 10:21:47'),
+(73, 1, 'Admin', 'Admin', 1, '2015-06-02 19:45:27'),
+(74, 1, 'Admin', 'Admin', 1, '2015-06-02 19:58:53'),
+(75, 1, 'Admin', 'Admin', 1, '2015-06-02 20:01:48'),
+(76, 1, 'Admin', 'Admin', 1, '2015-06-02 20:24:05'),
+(77, 1, 'Admin', 'Admin', 1, '2015-06-02 21:40:17'),
+(78, 1, 'Admin', 'Admin', 1, '2015-06-03 02:26:14'),
+(79, 1, 'Admin', 'Admin', 1, '2015-06-03 20:47:08'),
+(80, 1, 'Admin', 'Admin', 1, '2015-06-03 20:49:04'),
+(81, 1, 'Admin', 'Admin', 1, '2015-06-04 14:38:19'),
+(82, 1, 'Admin', 'Admin', 1, '2015-06-04 15:39:17'),
+(83, 1, 'Admin', 'Admin', 1, '2015-06-04 15:57:05'),
+(84, 1, 'Admin', 'Admin', 1, '2015-06-04 16:28:50'),
+(85, 1, 'Admin', 'Admin', 1, '2015-06-04 16:32:05'),
+(86, 1, 'Admin', 'Admin', 1, '2015-06-04 16:37:17'),
+(87, 1, 'Admin', 'Admin', 1, '2015-06-04 18:29:03'),
+(88, 1, 'Admin', 'Admin', 1, '2015-06-04 18:30:42'),
+(89, 1, 'Admin', 'Admin', 1, '2015-06-04 18:38:48'),
+(90, 1, 'Admin', 'Admin', 1, '2015-06-04 19:17:45'),
+(91, 1, 'Admin', 'Admin', 1, '2015-06-04 19:48:09'),
+(92, 1, 'Admin', 'Admin', 1, '2015-06-04 20:25:14'),
+(93, 1, 'Admin', 'Admin', 1, '2015-06-04 20:31:15'),
+(94, 1, 'Admin', 'Admin', 1, '2015-06-04 23:16:50'),
+(95, 1, 'Admin', 'Admin', 1, '2015-06-04 23:33:13'),
+(96, 1, 'Admin', 'Admin', 1, '2015-06-05 00:03:48'),
+(97, 1, 'Admin', 'Admin', 1, '2015-06-05 00:14:56'),
+(98, 1, 'Admin', 'Admin', 1, '2015-06-05 00:28:07'),
+(99, 1, 'Admin', 'Admin', 1, '2015-06-05 00:34:20'),
+(100, 1, 'Admin', 'Admin', 1, '2015-06-05 04:06:48'),
+(101, 1, 'Admin', 'Admin', 1, '2015-06-05 04:07:34'),
+(102, 1, 'Admin', 'Admin', 1, '2015-06-05 05:01:23'),
+(103, 1, 'Admin', 'Admin', 1, '2015-06-05 07:27:06'),
+(104, 1, 'Admin', 'Admin', 1, '2015-06-05 07:32:16'),
+(105, 1, 'Admin', 'Admin', 1, '2015-06-05 08:16:31'),
+(106, 1, 'Admin', 'Admin', 1, '2015-06-05 08:29:14'),
+(107, 1, 'Admin', 'Admin', 1, '2015-06-05 08:41:06'),
+(108, 1, 'Admin', 'Admin', 1, '2015-06-05 08:43:59'),
+(109, 1, 'Admin', 'Admin', 1, '2015-06-05 08:44:35'),
+(110, 1, 'Admin', 'Admin', 1, '2015-06-05 08:49:58'),
+(111, 1, 'Admin', 'Admin', 1, '2015-06-05 14:05:19'),
+(112, 1, 'Admin', 'Admin', 1, '2015-06-05 14:11:31'),
+(113, 1, 'Admin', 'Admin', 1, '2015-06-05 14:19:35'),
+(114, 1, 'Admin', 'Admin', 1, '2015-06-05 14:22:48'),
+(115, 1, 'Admin', 'Admin', 1, '2015-06-05 14:25:25'),
+(116, 1, 'Admin', 'Admin', 1, '2015-06-05 14:26:21'),
+(117, 1, 'Admin', 'Admin', 1, '2015-06-05 14:27:19'),
+(118, 1, 'Admin', 'Admin', 1, '2015-06-05 14:56:28'),
+(119, 1, 'Admin', 'Admin', 1, '2015-06-05 15:02:35'),
+(120, 1, 'Admin', 'Admin', 1, '2015-06-05 15:03:23'),
+(121, 1, 'Admin', 'Admin', 1, '2015-06-05 15:04:14'),
+(122, 1, 'Admin', 'Admin', 1, '2015-06-05 15:21:11'),
+(123, 1, 'Admin', 'Admin', 1, '2015-06-05 15:22:27'),
+(124, 1, 'Admin', 'Admin', 1, '2015-06-05 15:22:28'),
+(125, 1, 'Admin', 'Admin', 1, '2015-06-05 15:23:30'),
+(126, 1, 'Admin', 'Admin', 1, '2015-06-05 15:24:25'),
+(127, 1, 'Admin', 'Admin', 1, '2015-06-05 15:28:39'),
+(128, 1, 'Admin', 'Admin', 1, '2015-06-05 16:47:44'),
+(129, 1, 'Admin', 'Admin', 1, '2015-06-05 16:52:43'),
+(130, 1, 'Admin', 'Admin', 1, '2015-06-05 17:48:01'),
+(131, 1, 'Admin', 'Admin', 1, '2015-06-05 18:32:12'),
+(132, 1, 'Admin', 'Admin', 1, '2015-06-05 19:08:32'),
+(133, 1, 'Admin', 'Admin', 1, '2015-06-05 19:08:34'),
+(134, 1, 'Admin', 'Admin', 1, '2015-06-05 19:15:41'),
+(135, 1, 'Admin', 'Admin', 1, '2015-06-05 20:24:17'),
+(136, 1, 'Admin', 'Admin', 1, '2015-06-05 21:07:07'),
+(137, 1, 'Admin', 'Admin', 1, '2015-06-05 21:43:20'),
+(138, 1, 'Admin', 'Admin', 1, '2015-06-05 21:49:57'),
+(139, 1, 'Admin', 'Admin', 1, '2015-06-05 22:58:42'),
+(140, 1, 'Admin', 'Admin', 1, '2015-06-05 23:32:31'),
+(141, 1, 'Admin', 'Admin', 1, '2015-06-06 00:09:10'),
+(142, 1, 'Admin', 'Admin', 1, '2015-06-06 00:11:03'),
+(143, 1, 'Admin', 'Admin', 1, '2015-06-06 02:18:16'),
+(144, 1, 'Admin', 'Admin', 1, '2015-06-06 03:39:40'),
+(145, 1, 'Admin', 'Admin', 1, '2015-06-06 04:22:57'),
+(146, 1, 'Admin', 'Admin', 1, '2015-06-06 04:31:35'),
+(147, 1, 'Admin', 'Admin', 1, '2015-06-06 04:34:34'),
+(148, 1, 'Admin', 'Admin', 1, '2015-06-06 04:42:41'),
+(149, 1, 'Admin', 'Admin', 1, '2015-06-06 04:58:54'),
+(150, 1, 'Admin', 'Admin', 1, '2015-06-06 06:32:16'),
+(151, 1, 'Admin', 'Admin', 1, '2015-06-06 06:33:20'),
+(152, 1, 'Admin', 'Admin', 1, '2015-06-06 15:29:12'),
+(153, 1, 'Admin', 'Admin', 1, '2015-06-06 17:51:09'),
+(154, 1, 'Admin', 'Admin', 1, '2015-06-07 00:38:45');
 
 -- --------------------------------------------------------
 
@@ -3179,7 +3291,14 @@ CREATE TABLE IF NOT EXISTS `ohrm_pay_grade` (
   `name` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `ohrm_pay_grade`
+--
+
+INSERT INTO `ohrm_pay_grade` (`id`, `name`) VALUES
+(2, 'mguykuyk');
 
 -- --------------------------------------------------------
 
@@ -3195,6 +3314,13 @@ CREATE TABLE IF NOT EXISTS `ohrm_pay_grade_currency` (
   PRIMARY KEY (`pay_grade_id`,`currency_id`),
   KEY `currency_id` (`currency_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ohrm_pay_grade_currency`
+--
+
+INSERT INTO `ohrm_pay_grade_currency` (`pay_grade_id`, `currency_id`, `min_salary`, `max_salary`) VALUES
+(2, 'AWG', 12, 1245);
 
 -- --------------------------------------------------------
 
@@ -3468,7 +3594,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_screen` (
   `action_url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `module_id` (`module_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=119 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
 
 --
 -- Dumping data for table `ohrm_screen`
@@ -3585,7 +3711,8 @@ INSERT INTO `ohrm_screen` (`id`, `name`, `module_id`, `action_url`) VALUES
 (115, 'Employee_Tracker_Logs', 12, 'addPerformanceTrackerLog'),
 (116, 'Payroll', 13, 'viewPayroll'),
 (117, 'Paygroup', 13, 'viewPaygroup'),
-(118, 'Setup', 13, 'viewSetup');
+(118, 'Setup', 13, 'viewSetup'),
+(119, 'addPaygroup', 13, 'addPaygroup');
 
 -- --------------------------------------------------------
 
@@ -4036,7 +4163,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_user_role_data_group` (
   PRIMARY KEY (`id`),
   KEY `user_role_id` (`user_role_id`),
   KEY `data_group_id` (`data_group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=227 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=228 ;
 
 --
 -- Dumping data for table `ohrm_user_role_data_group`
@@ -4268,7 +4395,8 @@ INSERT INTO `ohrm_user_role_data_group` (`id`, `user_role_id`, `data_group_id`, 
 (223, 3, 59, 1, 0, 0, 0, 0),
 (224, 1, 60, 0, 1, 0, 0, 0),
 (225, 2, 60, 0, 1, 0, 0, 1),
-(226, 3, 60, 0, 1, 0, 0, 0);
+(226, 3, 60, 0, 1, 0, 0, 0),
+(227, 1, 61, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -4287,7 +4415,7 @@ CREATE TABLE IF NOT EXISTS `ohrm_user_role_screen` (
   PRIMARY KEY (`id`),
   KEY `user_role_id` (`user_role_id`),
   KEY `screen_id` (`screen_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=158 ;
 
 --
 -- Dumping data for table `ohrm_user_role_screen`
@@ -4412,7 +4540,7 @@ INSERT INTO `ohrm_user_role_screen` (`id`, `user_role_id`, `screen_id`, `can_rea
 (116, 1, 94, 1, 1, 1, 1),
 (117, 1, 95, 1, 1, 1, 1),
 (118, 1, 96, 1, 1, 1, 1),
-(119, 5, 96, 1, 1, 1, 1),
+(119, 1, 96, 1, 1, 1, 1),
 (120, 6, 96, 1, 1, 1, 1),
 (121, 1, 97, 1, 1, 1, 1),
 (122, 6, 97, 1, 1, 1, 1),
@@ -4449,7 +4577,8 @@ INSERT INTO `ohrm_user_role_screen` (`id`, `user_role_id`, `screen_id`, `can_rea
 (153, 2, 115, 1, 0, 0, 0),
 (154, 1, 116, 1, 1, 1, 1),
 (155, 1, 117, 1, 1, 1, 1),
-(156, 1, 118, 1, 1, 1, 1);
+(156, 1, 118, 1, 1, 1, 1),
+(157, 1, 119, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -4645,10 +4774,18 @@ INSERT INTO `ohrm_work_week` (`id`, `operational_country_id`, `mon`, `tue`, `wed
 
 CREATE TABLE IF NOT EXISTS `py_paygroup` (
   `company` varchar(30) NOT NULL,
-  `py_paygroup` varchar(15) DEFAULT NULL,
+  `py_paygroup` varchar(15) NOT NULL,
   `description` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`company`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `py_paygroup`
+--
+
+INSERT INTO `py_paygroup` (`company`, `py_paygroup`, `description`, `id`) VALUES
+('mine', 'some', 'meh', 10);
 
 --
 -- Constraints for dumped tables
